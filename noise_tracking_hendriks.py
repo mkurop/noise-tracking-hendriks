@@ -22,10 +22,11 @@ class NoiseTracking:
     "Unbiased MMSE-Based Noise Power Estimation with Low Complexity and Low Tracking Delay", IEEE TASL, 2012 
     "Noise Power Estimation Based on the Probability of Speech Presence", Timo Gerkmann and Richard Hendriks, WASPAA 2011
 
-    :param frame: - frame length in samples (typically 512 for 16kHz sampling frequency)
+    :param frame: frame length in samples (typically 512 for 16kHz sampling frequency)
+    :type frame: int
 
-    Author: Marcin Kuropatwiński
-    Created: 02.04.2014, Modified 08.11.2016
+    .. codeauthor:: Marcin Kuropatwiński, marcin@talking2rabbit.com
+    .. date:: Created: 02.04.2014, Modified 08.11.2016
 
     """
 
@@ -33,19 +34,18 @@ class NoiseTracking:
 
         self.state = NoiseTracking.State(frame = frame)
 
-    def noisePowRunning(self, noisy_psd):
+    def noisePowRunning(self, noisy_psd : np.ndarray):
 
         """
         Real time function for computing noise power spectral density (psd) given instantaneous noisy speech psd.
 
-        Input:
-
-        noisyPer - noisy signal frame psd, vector of length frame/2+1 (for 16kHz sampling rate it should be 257
+        :param noisyPer: noisy signal frame psd, vector of length frame/2+1 (for 16kHz sampling rate it should be 257
                    elements)
+        :type noisyPer: np.ndarray
 
 
-        Author: Marcin Kuropatwiński
-        Created: 02.04.2014
+        .. codeauthor:: Marcin Kuropatwiński, marcin@talking2rabbit.com
+        .. date:: 02.04.2014
 
         """
 
